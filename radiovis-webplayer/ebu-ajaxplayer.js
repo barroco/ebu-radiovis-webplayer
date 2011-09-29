@@ -19,6 +19,9 @@
 			//RadioDNS Resolution on topic
 			function rdnslookup(t){
 					//topic = t;
+				
+				if(requestserver == ""){
+
 					var jqxhr = $.ajax({ url: "radiovis-webplayer/rdns-lookup.php", type: "GET", data: {'topic': topic} })
 					.success(function(data) { 
 						if(data.indexOf(":") == -1)
@@ -31,13 +34,19 @@
 					})
 					.error(function() { })
 					.complete(function() {  });
+				}
+				else{
+					var s = requestserver.split(":");
+					$("#textframe").html("<div style='color:#555'>Connection to "+requestserver+"</div>");
+					startVIS(s[0], s[1]);
+				}
 			}
 			
 			//Start visualisation on RadioVIS server
 			function startVIS(server, port){ 
 					visserver = server; 
 					visport = port;
-					setTimeout(function(){ sndReq("image"); }, 1000);
+					setTimeout(function(){ sndReq("image"); }, 100);
 					setTimeout(function(){ sndReq("text"); }, 1200);
 			}
 			
@@ -100,7 +109,8 @@
 						}
 						else if(type == "text"){
 						
-							$("#textframe").html("<a href=\""+link+"\">"+content+"</a>");
+						//	$("#textframe").html("<a href=\""+link+"\">"+content+"</a>");
+							$("#textframe").html(""+content+"");
 							
 							if(newid != textlastid)
 								//sndReq(type);

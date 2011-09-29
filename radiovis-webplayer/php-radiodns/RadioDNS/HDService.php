@@ -75,7 +75,7 @@ class RadioDNS_HDService extends RadioDNS_Service
 		/**
 		 * cc value
 		 */
-		if(ereg('^[0-9A-F]{3}$', $cc))
+		if(@ereg('^[0-9A-F]{3}$', $cc))
 		{
 			$this->cc = $cc;
 		}
@@ -88,7 +88,7 @@ class RadioDNS_HDService extends RadioDNS_Service
 		/**
 		 * tx value
 		 */
-		if(ereg('^[0-9A-F]{5}$', $tx))
+		if(@ereg('^[0-9A-F]{5}$', $tx))
 		{
 			$this->tx = $tx;
 		}
