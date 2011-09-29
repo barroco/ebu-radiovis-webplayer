@@ -64,7 +64,7 @@ abstract class RadioDNS_Service
 	 */
 	private function setupDNSResolver()
 	{
-		require_once('Net/DNS.php');
+		@require_once('Net/DNS.php');
 		/*
 		 * hack to fix a problem with Net_DNS library using and unsetting 
 		 * GLOBAL with each new resolver

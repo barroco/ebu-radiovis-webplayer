@@ -99,7 +99,7 @@ class RadioDNS_DABService extends RadioDNS_Service
 		/**
 		 * validate ecc value
 		 */
-		if(ereg('^[0-9A-F]{3}$', $ecc))
+		if(@ereg('^[0-9A-F]{3}$', $ecc))
 		{
 			$this->ecc = $ecc;
 		}
@@ -112,7 +112,7 @@ class RadioDNS_DABService extends RadioDNS_Service
 		/**
 		 * validate eid value
 		 */
-		if(ereg('^[0-9A-F]{4}$', $eid))
+		if(@ereg('^[0-9A-F]{4}$', $eid))
 		{
 			$this->eid = $eid;
 		}

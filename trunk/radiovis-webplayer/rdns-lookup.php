@@ -20,7 +20,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with EBU-radiovis-ajaxplayer.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 require_once "php-radiodns/RadioDNS.php";
 
 if(!isset($_GET['topic']) || strpos($_GET['topic'], "/topic/") === FALSE)
@@ -30,7 +29,10 @@ if(!isset($_GET['topic']) || strpos($_GET['topic'], "/topic/") === FALSE)
 $rdns = new RadioDNS();
 
 $topic = $_GET['topic'];
-$t = split("/",$topic);
+
+$t = explode("/", $topic);
+
+
 
 if($t[2] == "fm")
 	$rsp = $rdns->lookupFMService(strtoupper($t[3]), strtoupper($t[4]), $t[5]/100);
@@ -43,6 +45,7 @@ else if($t[2] == "hd")
 	
 	
 $server = $rsp["applications"]["radiovis"]["servers"][0];
+
 
 //Return the server and the port of the RadioVIS service according to the topic
 if(isset($server))
