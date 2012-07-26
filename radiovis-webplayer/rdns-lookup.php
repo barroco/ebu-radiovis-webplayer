@@ -37,7 +37,7 @@ $t = explode("/", $topic);
 if($t[2] == "fm")
 	$rsp = $rdns->lookupFMService(strtoupper($t[3]), strtoupper($t[4]), $t[5]/100);
 else if($t[2] == "dab")
-	$rsp = $rdns->lookupDABService(strtoupper($t[3]), strtoupper($t[4]), $t[5], $t[6]);
+	$rsp = $rdns->lookupDABService(strtoupper($t[3]), strtoupper($t[4]), strtoupper($t[5]), $t[6]);
 else if($t[2] == "am")
 	$rsp = $rdns->lookupAMService($t[3], $t[4]);
 else if($t[2] == "hd")
