@@ -45,14 +45,16 @@ along with EBU-radiovis-ajaxplayer.  If not, see <http://www.gnu.org/licenses/>.
 				for more information, see RadioVIS Specification at www.radiodns.org
 			********************************/
 			var topic = "<?php echo $_GET["topic"]; ?>";
-			
+			var requestserver = "<?php echo @$_GET["visserver"]; ?>";
 
 		</script>
-		<script src="radiovis-webplayer/ebu-ajaxplayer.js"></script>
 		<script src="radiovis-webplayer/jquery-1.6.1.min.js"></script>
+		<script src="radiovis-webplayer/ebu-ajaxplayer.js"></script>
 		<script>
 				$(document).ready(function(){
 					rdnslookup();
+					$(window).focus(function(){jQuery.fx.off = false;}); 
+					$(window).blur(function(){jQuery.fx.off = true;}); 
 				});
 		</script>
 
